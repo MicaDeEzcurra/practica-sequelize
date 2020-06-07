@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recommended</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
+    
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
+    <!-- My Own Stylesheet -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="uk-placeholder">
+      <div class="uk-width-1-2@s uk-width-2-5@m">
+        <h1>MOVIES</h1>
+        <p >RECOMMENDED</p>
+        <ul class="uk-nav uk-nav-default">
+          <% recommended.forEach(movie=>{ %>
+            <a href="/movies/detail/<%=movie.id%>">
+              <li> <%=movie.title %> </li>
+            </a>
+          <% }) %>  
+        </ul>
+      </div>
+      <a class="uk-button uk-button-default" href="/movies">BACK</a>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Movies</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
+    
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
+    <!-- My Own Stylesheet -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="uk-placeholder">
+      <div class="uk-width-1-2@s uk-width-2-5@m">
+        <h1>MOVIES</h1>
+        <p >SEARCH MOVIES</p>
+        <form class="uk-search uk-search-large" action="/movies/search" method="POST">
+          <span uk-search-icon></span>
+          <input class="uk-search-input" type="search" placeholder="Search movies" name="search">
+          <select name="order">
+            <option value="rating">Rating</option>
+            <option value="length">Duracion</option>
+            <option value="release_date">Fecha</option>
+          </select>
+        </form>
+        
+        <% if (typeof searchResults != 'undefined') { %>
+          <ul class="uk-nav uk-nav-default">
+            <% searchResults.forEach(movie=>{ %>
+            <a href="/movies/detail/<%=movie.id%>">
+              <li> <%=movie.title %> </li>
+            </a>
+            <% }) %>
+          </ul>
+        <% } %>
+        
+      </div>
+      <a class="uk-button uk-button-default" href="/movies">BACK</a>
+    </div>
+
+  </body>
+</html>
